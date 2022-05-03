@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:terrazas/galeriapromo.dart';
 
 void main() {
   runApp(TelcelApp());
@@ -9,56 +10,10 @@ class TelcelApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'App Telcel',
+        title: 'App Telcel V2',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
         home: PaginaInicial());
   } //Widget
 } //Clase TelcelApp Widget sin estado
-
-class PaginaInicial extends StatefulWidget {
-  PaginaInicial({Key? key}) : super(key: key);
-  @override
-  _PaginaInicialState createState() => _PaginaInicialState();
-} //Widget con estado
-
-class _PaginaInicialState extends State<PaginaInicial> {
-  List<String> images = [
-    "assets/images/imagen1.jpg",
-    "assets/images/imagen2.jpg",
-    "assets/images/imagen3.jpg",
-    "assets/images/imagen1.jpg",
-    "assets/images/imagen2.jpg",
-    "assets/images/imagen3.jpg",
-    "assets/images/imagen1.jpg",
-    "assets/images/imagen2.jpg",
-    "assets/images/imagen3.jpg",
-    "assets/images/imagen1.jpg",
-    "assets/images/imagen2.jpg",
-    "assets/images/imagen3.jpg",
-  ];
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text("Tutorial GridView"),
-        ),
-        body: GridView.custom(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-          ),
-          childrenDelegate: SliverChildBuilderDelegate(
-            (BuildContext, index) {
-              return Image.asset(
-                images[index],
-                fit: BoxFit.cover,
-              );
-            },
-            childCount: 12,
-          ),
-          padding: EdgeInsets.all(10),
-          shrinkWrap: true,
-        ));
-  }
-}
